@@ -3,4 +3,5 @@
     <string name="app_name">ktsapp</string>
     <string name="welcome_message">Добро пожаловать</string>
     <string name="entry_btn">Я не работаю</string>
+    <string name="img_logo_descr">Логотип</string>
 </resources>
