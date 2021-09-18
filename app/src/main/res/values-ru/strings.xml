@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ktsapp</string>
+    <string name="welcome_message">Добро пожаловать</string>
+    <string name="entry_btn">Далее</string>
+    <string name="img_logo_descr">Логотип</string>
+</resources>
