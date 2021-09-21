@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 
 
@@ -18,13 +19,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
     private var editTextPassword : EditText? = null
     private var buttonLogin : Button? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +28,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
         buttonLogin = view.findViewById(R.id.loginButton)
         editTextLogin?.addTextChangedListener(loginTextWatcher)
         editTextPassword?.addTextChangedListener(loginTextWatcher)
+
         val action = LoginFragmentDirections.actionLoginFragment2ToMainFragment()
         buttonLogin?.setOnClickListener{
             findNavController().navigate(action)
