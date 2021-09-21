@@ -3,8 +3,8 @@
     <string name="welcome_message">Welcome</string>
     <string name="entry_btn">Next</string>
     <string name="img_logo_descr">Logo</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="loginButton">Login</string>
-    <string name="emailHint">email</string>
+    <string name="emailHint" translatable="false">email</string>
     <string name="passwordHint">password</string>
 </resources>

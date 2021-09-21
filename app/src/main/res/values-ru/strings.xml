@@ -4,4 +4,6 @@
     <string name="welcome_message">Добро пожаловать</string>
     <string name="entry_btn">Далее</string>
     <string name="img_logo_descr">Логотип</string>
+    <string name="loginButton">Войти</string>
+    <string name="passwordHint">Пароль</string>
 </resources>
