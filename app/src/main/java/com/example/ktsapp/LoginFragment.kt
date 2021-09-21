@@ -18,6 +18,14 @@ class LoginFragment : Fragment(R.layout.fragment_login){
     private var editTextPassword : EditText? = null
     private var buttonLogin : Button? = null
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         editTextLogin = view.findViewById(R.id.emailText)
@@ -25,8 +33,9 @@ class LoginFragment : Fragment(R.layout.fragment_login){
         buttonLogin = view.findViewById(R.id.loginButton)
         editTextLogin?.addTextChangedListener(loginTextWatcher)
         editTextPassword?.addTextChangedListener(loginTextWatcher)
+        val action = LoginFragmentDirections.actionLoginFragment2ToMainFragment()
         buttonLogin?.setOnClickListener{
-            findNavController().navigate(R.id.fragmentMain)
+            findNavController().navigate(action)
         }
     }
 
@@ -41,8 +50,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
             val isValidEmail = Patterns.EMAIL_ADDRESS.matcher(loginInput).matches()
             val isValidPassword = passwordInput.length >= 8
 
-            buttonLogin?.isEnabled = isValidPassword
-                    && isValidEmail
+            buttonLogin?.isEnabled = isValidPassword && isValidEmail
         }
 
         override fun afterTextChanged(p0: Editable?) {
