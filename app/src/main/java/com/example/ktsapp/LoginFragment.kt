@@ -5,9 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.viewModels
@@ -19,7 +17,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
     private var editTextPassword : EditText? = null
     private var buttonLogin : Button? = null
 
-    private val loginViewModel: LoginViewModel by viewModels()
+    private val savedLoginViewModel: SavedLoginViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,7 +27,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
         editTextLogin?.addTextChangedListener(loginTextWatcher)
         editTextPassword?.addTextChangedListener(loginTextWatcher)
 
-        loginViewModel.state.observe(viewLifecycleOwner, { state ->
+        savedLoginViewModel.state.observe(viewLifecycleOwner, { state ->
             val isValidEmail = Patterns.EMAIL_ADDRESS.matcher(state.email).matches()
             val isValidPassword = state.password.length >= 8
 
@@ -51,7 +49,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
             val loginInput = editTextLogin?.text.toString()
             val passwordInput = editTextPassword?.text.toString()
 
-            loginViewModel.updateLogin(loginInput, passwordInput)
+            savedLoginViewModel.updateLogin(loginInput, passwordInput)
         }
 
         override fun afterTextChanged(p0: Editable?) {
