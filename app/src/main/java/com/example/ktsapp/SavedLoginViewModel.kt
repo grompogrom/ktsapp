@@ -18,4 +18,7 @@ class SavedLoginViewModel(private val savedStateHandle: SavedStateHandle) : View
         mutableLoginState.value = data
     }
 
+    override fun onCleared() {
+
+    }
 }
