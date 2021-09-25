@@ -6,48 +6,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/avatarImageView"
-        android:layout_width="79dp"
-        android:layout_height="82dp"
-        app:layout_constraintBottom_toTopOf="@+id/PictureView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardCornerRadius="250dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/pictureView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/avatarImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/av_test"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/userNameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="18sp"
+        android:textColor="#0E0E0E"
         app:layout_constraintBottom_toBottomOf="@+id/avatarImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@+id/avatarImageView" />
 
     <ImageView
-        android:id="@+id/PictureView"
-        android:layout_width="413dp"
-        android:layout_height="293dp"
+        android:id="@+id/pictureView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toTopOf="@+id/likeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageView"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        tools:srcCompat="@drawable/im_test" />
 
     <TextView
         android:id="@+id/likesCountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:textColor="#040303"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toEndOf="@+id/likeButton"
-        app:layout_constraintTop_toBottomOf="@+id/PictureView" />
+        app:layout_constraintTop_toBottomOf="@+id/pictureView" />
 
     <ImageButton
         android:id="@+id/likeButton"
@@ -55,6 +72,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PictureView"
+        app:layout_constraintTop_toBottomOf="@+id/pictureView"
         app:srcCompat="@android:drawable/btn_star" />
 </androidx.constraintlayout.widget.ConstraintLayout>
