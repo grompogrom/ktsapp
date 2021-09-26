@@ -1,4 +1,4 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
 import android.os.Bundle
 import android.text.Editable
@@ -17,21 +17,19 @@ class LoginFragment : Fragment(R.layout.fragment_login){
     private var editTextPassword : EditText? = null
     private var buttonLogin : Button? = null
 
-    private val savedLoginViewModel: SavedLoginViewModel by viewModels()
+    private val savedLoginViewModel: SavedLoginViewModel? by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         editTextLogin = view.findViewById(R.id.emailText)
         editTextPassword = view.findViewById(R.id.passwordText)
         buttonLogin = view.findViewById(R.id.loginButton)
+
         editTextLogin?.addTextChangedListener(loginTextWatcher)
         editTextPassword?.addTextChangedListener(loginTextWatcher)
 
-        savedLoginViewModel.state.observe(viewLifecycleOwner, { state ->
-            val isValidEmail = Patterns.EMAIL_ADDRESS.matcher(state.email).matches()
-            val isValidPassword = state.password.length >= 8
-
-            buttonLogin?.isEnabled = isValidPassword && isValidEmail
+        savedLoginViewModel?.state?.observe(viewLifecycleOwner, {
+            buttonLogin?.isEnabled = savedLoginViewModel?.isValidData() == true
         })
 
         val action = LoginFragmentDirections.actionLoginFragment2ToMainFragment()
@@ -40,20 +38,24 @@ class LoginFragment : Fragment(R.layout.fragment_login){
         }
     }
 
-    private val loginTextWatcher = object : TextWatcher{
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+    override fun onDestroyView() {
+        super.onDestroyView()
+        editTextLogin = null
+        editTextPassword = null
+        buttonLogin = null
+    }
 
-        }
+    private val loginTextWatcher = object : TextWatcher{
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             val loginInput = editTextLogin?.text.toString()
             val passwordInput = editTextPassword?.text.toString()
 
-            savedLoginViewModel.updateLogin(loginInput, passwordInput)
+            savedLoginViewModel?.updateLogin(loginInput, passwordInput)
         }
 
-        override fun afterTextChanged(p0: Editable?) {
-        }
+        override fun afterTextChanged(p0: Editable?) {}
 
     }
 }

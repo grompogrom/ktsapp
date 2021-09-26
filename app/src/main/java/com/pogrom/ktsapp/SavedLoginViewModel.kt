@@ -1,7 +1,7 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
@@ -18,4 +18,10 @@ class SavedLoginViewModel(private val savedStateHandle: SavedStateHandle) : View
         mutableLoginState.value = data
     }
 
+    fun isValidData(): Boolean{
+        val data: LoginData? = state.value
+        val isValidEmail = Patterns.EMAIL_ADDRESS.matcher(data?.email).matches()
+        val isValidPassword = data?.password?.length!! >= 8
+        return isValidEmail && isValidPassword
+    }
 }

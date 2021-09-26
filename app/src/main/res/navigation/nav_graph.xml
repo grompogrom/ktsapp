@@ -6,7 +6,7 @@
     app:startDestination="@id/welcomeScreen">
     <fragment
         android:id="@+id/welcomeScreen"
-        android:name="com.example.ktsapp.WelcomeScreen"
+        android:name="com.pogrom.ktsapp.WelcomeScreen"
         android:label="fragment_welcome_screen"
         tools:layout="@layout/fragment_welcome_screen" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment2"
-        android:name="com.example.ktsapp.LoginFragment"
+        android:name="com.pogrom.ktsapp.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.ktsapp.MainFragment"
+        android:name="com.pogrom.ktsapp.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main"/>
 </navigation>

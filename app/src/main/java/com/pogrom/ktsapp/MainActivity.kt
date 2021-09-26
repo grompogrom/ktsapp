@@ -1,4 +1,4 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

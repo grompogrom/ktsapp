@@ -1,4 +1,4 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
