@@ -1,4 +1,4 @@
-package com.example.ktsapp
+package com.example.ktsapp.fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.ktsapp.R
+import com.example.ktsapp.models.SavedLoginViewModel
 
 
 class LoginFragment : Fragment(R.layout.fragment_login){
@@ -34,7 +36,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
             buttonLogin?.isEnabled = isValidPassword && isValidEmail
         })
 
-        val action = LoginFragmentDirections.actionLoginFragment2ToMainFragment()
+        val action = LoginFragmentDirections.actionLoginFragmentToMainFragment()
         buttonLogin?.setOnClickListener{
             findNavController().navigate(action)
         }
@@ -54,6 +56,5 @@ class LoginFragment : Fragment(R.layout.fragment_login){
 
         override fun afterTextChanged(p0: Editable?) {
         }
-
     }
 }
