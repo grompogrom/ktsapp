@@ -11,7 +11,6 @@ import kotlinx.android.extensions.LayoutContainer
 import com.example.ktsapp.models.AdwItem
 
 class AdwItemDelegate(
-    private val onItemClick: (item: AdwItem) -> Unit
 ) : AbsListItemAdapterDelegate<Any, Any, AdwItemDelegate.ViewHolder>() {
 
     override fun isForViewType(item: Any, items: MutableList<Any>, position: Int): Boolean {
@@ -21,7 +20,7 @@ class AdwItemDelegate(
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_adw, parent, false)
-        return ViewHolder(itemView, onItemClick)
+        return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(item: Any, viewHolder: ViewHolder, payloads: MutableList<Any>) {
@@ -29,16 +28,12 @@ class AdwItemDelegate(
     }
 
     inner class ViewHolder(
-        override val containerView: View,
-        private val onItemClick: (item: AdwItem) -> Unit
+        override val containerView: View
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
         private val binding = ItemAdwBinding.bind(containerView)
 
         private var currentItem: AdwItem? = null
-
-        init {
-            containerView.setOnClickListener { currentItem?.let(onItemClick) }
-        }
+        
 
         fun bind(item: AdwItem) = with(binding) {
             description.text = item.description

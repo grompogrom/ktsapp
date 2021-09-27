@@ -14,7 +14,7 @@ class FeedDelegatesListAdapter : AsyncListDifferDelegationAdapter<Any>(ComplexDi
     init {
         delegatesManager
             .addDelegate(PostItemDelegate())
-            .addDelegate(AdwItemDelegate(::removeItem))
+            .addDelegate(AdwItemDelegate())
             .addDelegate(PageLoadingDelegate())
     }
 
@@ -32,11 +32,5 @@ class FeedDelegatesListAdapter : AsyncListDifferDelegationAdapter<Any>(ComplexDi
 
     }
 
-    private fun removeItem(item: Any) {
-        val newItems = items.toMutableList().apply {
-            remove(item)
-        }
-        items = newItems
-    }
 
 }

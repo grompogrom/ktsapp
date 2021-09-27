@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">ktsapp</string>
-    <string name="welcome_message">Welcome</string>
-    <string name="entry_btn">Next</string>
+    <string name="welcomeScreen_title1">Welcome</string>
+    <string name="welcomeScreen_skip_btn">Skip</string>
     <string name="img_logo_descr">Logo</string>
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="loginButton">Login</string>
-    <string name="emailHint" translatable="false">email</string>
-    <string name="passwordHint">password</string>
+    <string name="login_loginButton">Login</string>
+    <string name="login_emailHint" translatable="false">email</string>
+    <string name="login_passwordHint">password</string>
+    <string name="welcomeScreen_title2">Many photos</string>
+    <string name="welcomeScreen_title3">Share impressions</string>
+    <string name="welcomeScreen_description1">amaizing</string>
+    <string name="welcomeScreen_description2">breathtaken</string>
+    <string name="welcomeScreen_description3">Unfogetable</string>
 </resources>

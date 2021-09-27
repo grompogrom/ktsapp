@@ -34,7 +34,7 @@
             android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/emailHint"
+            android:hint="@string/login_emailHint"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +54,7 @@
             android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/passwordHint"
+            android:hint="@string/login_passwordHint"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
         android:enabled="false"
-        android:text="@string/loginButton"
+        android:text="@string/login_loginButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

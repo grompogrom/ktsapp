@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ktsapp</string>
-    <string name="welcome_message">Добро пожаловать</string>
-    <string name="entry_btn">Далее</string>
+    <string name="welcomeScreen_title1">Добро пожаловать</string>
+    <string name="welcomeScreen_skip_btn">Пропустить</string>
     <string name="img_logo_descr">Логотип</string>
-    <string name="loginButton">Войти</string>
-    <string name="passwordHint">Пароль</string>
+    <string name="login_loginButton">Войти</string>
+    <string name="login_passwordHint">Пароль</string>
+    <string name="welcomeScreen_title2">Много фотографий</string>
+    <string name="welcomeScreen_title3">Делитесь впечатениями</string>
+    <string name="welcomeScreen_description1">Удивительно</string>
+    <string name="welcomeScreen_description2">Захватывает дух</string>
+    <string name="welcomeScreen_description3">Незабываемо</string>
 </resources>
