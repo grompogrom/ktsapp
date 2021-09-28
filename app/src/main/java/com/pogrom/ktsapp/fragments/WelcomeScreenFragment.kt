@@ -18,11 +18,11 @@ class WelcomeScreenFragment : Fragment(R.layout.fragment_welcome_screen) {
         super.onViewCreated(view, savedInstanceState)
         val action = WelcomeScreenFragmentDirections.actionWelcomeScreenToLoginFragment2()
         val navController = findNavController()
-        binding.apply { viewpager.adapter = WelcomeScreenPagerAdapter(getList(), navController, action)
+        binding.apply { viewpager.adapter = WelcomeScreenPagerAdapter(getWelcomeScreenDataList(), navController, action)
         circleIndicator.setViewPager(viewpager)
         }
     }
-    private fun getList(): List<WelcomeScreenData> {
+    private fun getWelcomeScreenDataList(): List<WelcomeScreenData> {
         return listOf(
             WelcomeScreenData(
                 title = getString(R.string.welcomeScreen_title1),
