@@ -1,21 +1,18 @@
-package com.example.ktsapp.fragments
+package com.pogrom.ktsapp.fragments
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.ktsapp.FeedDelegatesListAdapter
-import com.example.ktsapp.R
-import com.example.ktsapp.databinding.FragmentMainBinding
-import com.example.ktsapp.models.AdwItem
-import com.example.ktsapp.models.LoadingItem
-import com.example.ktsapp.models.PostItem
-import com.example.ktsapp.utils.PaginationScrollListener
-import com.example.ktsapp.utils.autoCleared
+import com.pogrom.ktsapp.FeedDelegatesListAdapter
+import com.pogrom.ktsapp.R
+import com.pogrom.ktsapp.databinding.FragmentMainBinding
+import com.pogrom.ktsapp.models.AdwItem
+import com.pogrom.ktsapp.models.LoadingItem
+import com.pogrom.ktsapp.models.PostItem
+import com.pogrom.ktsapp.utils.autoCleared
 import java.util.*
 
 class MainFragment : Fragment(R.layout.fragment_main) {

@@ -1,4 +1,4 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ktsapp.databinding.ItemWelcomeScreenDescriptionBinding
+import com.pogrom.ktsapp.databinding.ItemWelcomeScreenDescriptionBinding
 
 class WelcomeScreenPagerAdapter(private val data: List<WelcomeScreenData>,
                                 private val navController: NavController,

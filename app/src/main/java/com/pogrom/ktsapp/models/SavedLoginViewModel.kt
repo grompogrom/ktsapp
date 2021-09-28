@@ -1,9 +1,9 @@
-package com.example.ktsapp.models
+package com.pogrom.ktsapp.models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.example.ktsapp.LoginData
+import com.pogrom.ktsapp.LoginData
 
 class SavedLoginViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
     private val mutableLoginState =

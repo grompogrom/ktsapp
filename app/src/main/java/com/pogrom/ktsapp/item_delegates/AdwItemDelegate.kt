@@ -1,14 +1,14 @@
-package com.example.ktsapp.item_delegates
+package com.pogrom.ktsapp.item_delegates
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ktsapp.R
-import com.example.ktsapp.databinding.ItemAdwBinding
+import com.pogrom.ktsapp.R
+import com.pogrom.ktsapp.databinding.ItemAdwBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import kotlinx.android.extensions.LayoutContainer
-import com.example.ktsapp.models.AdwItem
+import com.pogrom.ktsapp.models.AdwItem
 
 class AdwItemDelegate(
 ) : AbsListItemAdapterDelegate<Any, Any, AdwItemDelegate.ViewHolder>() {

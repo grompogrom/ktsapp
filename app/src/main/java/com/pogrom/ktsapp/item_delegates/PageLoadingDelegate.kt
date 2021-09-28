@@ -1,11 +1,11 @@
-package com.example.ktsapp.item_delegates
+package com.pogrom.ktsapp.item_delegates
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ktsapp.R
-import com.example.ktsapp.models.LoadingItem
+import com.pogrom.ktsapp.R
+import com.pogrom.ktsapp.models.LoadingItem
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import kotlinx.android.extensions.LayoutContainer
 

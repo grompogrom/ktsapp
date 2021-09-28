@@ -1,14 +1,14 @@
-package com.example.ktsapp.fragments
+package com.pogrom.ktsapp.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.ktsapp.R
-import com.example.ktsapp.WelcomeScreenData
-import com.example.ktsapp.WelcomeScreenPagerAdapter
-import com.example.ktsapp.databinding.FragmentWelcomeScreenBinding
+import com.pogrom.ktsapp.R
+import com.pogrom.ktsapp.WelcomeScreenData
+import com.pogrom.ktsapp.WelcomeScreenPagerAdapter
+import com.pogrom.ktsapp.databinding.FragmentWelcomeScreenBinding
 
 
 class WelcomeScreenFragment : Fragment(R.layout.fragment_welcome_screen) {

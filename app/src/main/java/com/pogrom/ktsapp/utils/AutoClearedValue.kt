@@ -1,4 +1,4 @@
-package com.example.ktsapp.utils
+package com.pogrom.ktsapp.utils
 
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.example.ktsapp.fragments
+package com.pogrom.ktsapp.fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,8 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.ktsapp.R
-import com.example.ktsapp.models.SavedLoginViewModel
+import com.pogrom.ktsapp.R
+import com.pogrom.ktsapp.models.SavedLoginViewModel
 
 
 class LoginFragment : Fragment(R.layout.fragment_login){

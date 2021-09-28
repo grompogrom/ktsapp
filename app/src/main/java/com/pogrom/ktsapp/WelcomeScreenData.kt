@@ -1,4 +1,4 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
 data class WelcomeScreenData (
     val title: String,

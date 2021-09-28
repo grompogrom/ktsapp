@@ -1,12 +1,12 @@
-package com.example.ktsapp
+package com.pogrom.ktsapp
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
-import com.example.ktsapp.item_delegates.AdwItemDelegate
-import com.example.ktsapp.item_delegates.PageLoadingDelegate
-import com.example.ktsapp.item_delegates.PostItemDelegate
-import com.example.ktsapp.models.AdwItem
-import com.example.ktsapp.models.PostItem
+import com.pogrom.ktsapp.item_delegates.AdwItemDelegate
+import com.pogrom.ktsapp.item_delegates.PageLoadingDelegate
+import com.pogrom.ktsapp.item_delegates.PostItemDelegate
+import com.pogrom.ktsapp.models.AdwItem
+import com.pogrom.ktsapp.models.PostItem
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class FeedDelegatesListAdapter : AsyncListDifferDelegationAdapter<Any>(ComplexDiffCallback()) {

@@ -1,4 +1,4 @@
-package com.example.ktsapp.models
+package com.pogrom.ktsapp.models
 
 import java.util.*
 
