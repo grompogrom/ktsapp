@@ -1,5 +1,6 @@
 package com.pogrom.ktsapp.models
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -18,7 +19,10 @@ class SavedLoginViewModel(private val savedStateHandle: SavedStateHandle) : View
         mutableLoginState.value = data
     }
 
-    override fun onCleared() {
-
+    fun isValidData(): Boolean{
+        val data: LoginData? = state.value
+        val isValidEmail = Patterns.EMAIL_ADDRESS.matcher(data?.email).matches()
+        val isValidPassword = data?.password?.length!! >= 8
+        return isValidEmail && isValidPassword
     }
 }
