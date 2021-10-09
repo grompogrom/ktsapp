@@ -47,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
             buttonLogin?.isEnabled = savedLoginViewModel.isValidData()
         })
 
-        val action = LoginFragmentDirections.actionLoginFragmentToMainFragment()
+        val action = LoginFragmentDirections.actionLoginFragmentToPaging3Fragment()
         buttonLogin?.setOnClickListener{
             findNavController().navigate(action)
         }

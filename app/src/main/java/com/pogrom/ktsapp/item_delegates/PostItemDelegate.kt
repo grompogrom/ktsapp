@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.pogrom.ktsapp.R
 import com.pogrom.ktsapp.databinding.ItemPostBinding
-import com.pogrom.ktsapp.models.PostItem
+import com.pogrom.ktsapp.models.Responses.GetPhotosResponse as PostItem // fixme
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import kotlinx.android.extensions.LayoutContainer
 
@@ -32,13 +34,20 @@ class PostItemDelegate : AbsListItemAdapterDelegate<Any, Any, PostItemDelegate.V
         private val binding = ItemPostBinding.bind(containerView)
 
         fun bind(postItem: PostItem) = with(binding){
-            avatarImage.setImageResource(postItem.userAvatar)
-            pictureView.setImageResource(postItem.picture)
-            userNameView.text = postItem.userName
-            likesCountView.text = postItem.likesCount.toString()
-            likeButton.setOnClickListener {
-                postItem.likesCount++
-                likesCountView.text = postItem.likesCount.toString() }
+            Glide.with(itemView)
+                .load(postItem.user.profile_image.small)
+                .transform(CircleCrop())
+                .placeholder(R.drawable.av_test)
+                .into(binding.avatarImage)
+
+            Glide.with(itemView)
+                .load(postItem.urls.full)
+                .placeholder(R.drawable.im_test)
+                .into(binding.pictureView)
+
+            userNameView.text = postItem.user.name
+            likesCountView.text = postItem.likes.toString()
+            likeButton.setOnClickListener {}
         }
     }
 }
