@@ -1,8 +1,7 @@
 package com.pogrom.ktsapp.networking
 
-import com.pogrom.ktsapp.models.Responses.GetPhotosResponse
-import retrofit2.http.GET
-import retrofit2.http.Query
+import com.pogrom.ktsapp.models.Responses.PostData
+import retrofit2.http.*
 
 interface UnsplashApiService {
 
@@ -10,5 +9,15 @@ interface UnsplashApiService {
     suspend fun getPhotos(
         @Query("page") page : Int,
         @Query("client_id") client_id: String = "m5jIoFCy8IyMBEvNQEURziyGmomJN-B-Y7uu3e8KRXY")
-        :List<GetPhotosResponse>
+        :List<PostData>
+
+    @POST("photos/{id}/like")
+    suspend fun addLike(
+        @Path("id") imageId : String
+    ):PostData
+
+    @DELETE("photos/{id}/like")
+    suspend fun deleteLike(
+        @Path("id") imageId : String
+    ):PostData
 }

@@ -11,4 +11,6 @@
     <string name="welcomeScreen_description1">Удивительно</string>
     <string name="welcomeScreen_description2">Захватывает дух</string>
     <string name="welcomeScreen_description3">Незабываемо</string>
+    <string name="auth_canceled">Ошибка входа</string>
+    <string name="main_fragment_error_loading">error loading</string>
 </resources>

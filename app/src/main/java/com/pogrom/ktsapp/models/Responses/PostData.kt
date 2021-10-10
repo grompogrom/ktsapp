@@ -3,7 +3,7 @@ package com.pogrom.ktsapp.models.Responses
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class GetPhotosResponse(
+data class PostData(
     val created_at: String,
     val current_user_collections: List<Any>,
     val description: String?,

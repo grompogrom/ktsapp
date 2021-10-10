@@ -16,7 +16,7 @@ class WelcomeScreenFragment : Fragment(R.layout.fragment_welcome_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val action = WelcomeScreenFragmentDirections.actionWelcomeScreenToLoginFragment2()
+        val action = WelcomeScreenFragmentDirections.actionWelcomeScreenToAuthFragment()
         val navController = findNavController()
         binding.apply { viewpager.adapter = WelcomeScreenPagerAdapter(getWelcomeScreenDataList(), navController, action)
         circleIndicator.setViewPager(viewpager)

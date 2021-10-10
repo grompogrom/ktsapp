@@ -16,6 +16,10 @@ android {
         versionCode 1
         versionName "1.0"
 
+        manifestPlaceholders = [
+                appAuthRedirectScheme: "school"
+        ]
+
     }
 
     buildTypes {
@@ -92,4 +96,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
 
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
+    //AppAuth
+    implementation 'net.openid:appauth:0.9.1'
 }

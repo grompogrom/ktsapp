@@ -1,69 +1,65 @@
 package com.pogrom.ktsapp.fragments
 
-import  android.os.Bundle
-import android.util.Log
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.pogrom.ktsapp.FeedDelegatesListAdapter
+import com.pogrom.ktsapp.LoaderStateAdapter
 import com.pogrom.ktsapp.R
-import androidx.lifecycle.Observer
+import com.pogrom.ktsapp.RemoteFeedAdapter
 import com.pogrom.ktsapp.databinding.FragmentMainBinding
-import com.pogrom.ktsapp.models.AdwItem
-import com.pogrom.ktsapp.models.FeedListViewModel
-import com.pogrom.ktsapp.models.LoadingItem
-import com.pogrom.ktsapp.models.PostItem
-import com.pogrom.ktsapp.utils.PaginationScrollListener
-import com.pogrom.ktsapp.utils.autoCleared
-import java.util.*
+import com.pogrom.ktsapp.models.RemoteFeedViewModel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
-    private val viewModel: FeedListViewModel by viewModels()
+
+    private lateinit var feedViewModel: RemoteFeedViewModel
+
+    private lateinit var feedAdapter: RemoteFeedAdapter
+
+    private lateinit var loaderStateAdapter: LoaderStateAdapter
 
     private val binding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
-    private var feedAdapter: FeedDelegatesListAdapter by autoCleared()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Timber.plant(Timber.DebugTree())
+        Timber.d("View created")
         initList()
-        bindViewModel()
-        loadMoreItems()
+        fetchPosts()
     }
 
     private fun initList() {
-        feedAdapter = FeedDelegatesListAdapter()
+        feedAdapter = RemoteFeedAdapter(
+            onLikeClick = {
+                feedViewModel.likeAction(it.id)
+            }
+        )
         with(binding.feed) {
             val orientation = RecyclerView.VERTICAL
-            adapter = feedAdapter
-                layoutManager = LinearLayoutManager(context, orientation, false)
+            loaderStateAdapter = LoaderStateAdapter { feedAdapter.retry() }
+            adapter = feedAdapter.withLoadStateFooter(loaderStateAdapter)
 
-//          Pagination
-            addOnScrollListener(
-                PaginationScrollListener(
-                    layoutManager = layoutManager as LinearLayoutManager,
-                    requestNextItems = ::loadMoreItems,
-                    visibilityThreshold = 6
-                )
-            )
+            layoutManager = LinearLayoutManager(context, orientation, false)
 
-            addItemDecoration(DividerItemDecoration(context, orientation))
-            setHasFixedSize(true)
+        }
+        feedViewModel = defaultViewModelProviderFactory.create(RemoteFeedViewModel::class.java)
+    }
+
+    private fun fetchPosts(){
+        lifecycleScope.launch{
+            feedViewModel.fetchDoggoImages().distinctUntilChanged().collectLatest {
+                feedAdapter.submitData(it)
+            }
         }
     }
 
 
-
-    private fun bindViewModel() {
-        viewModel.userList.observe(viewLifecycleOwner, Observer { feedAdapter.items = it })
-
-    }
-
-    private fun loadMoreItems(page: Int = 3) {
-        viewModel.getPosts(page)
-    }
 }
