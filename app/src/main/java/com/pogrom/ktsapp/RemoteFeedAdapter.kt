@@ -78,17 +78,18 @@ class PostViewHolder(
 
         userNameView.text = postItem.user.name
         likesCountView.text = postItem.likes.toString()
-        likeButton.imageTintMode = PorterDuff.Mode.DST_IN
+        likeButton.imageTintMode = if (isLiked) PorterDuff.Mode.MULTIPLY else PorterDuff.Mode.DST_IN
         likeButton.setOnClickListener {
-           onLikeClick(postItem)
-            isLiked = !isLiked
-            if (isLiked) {
-                likesCountView.text = postItem.likes.plus(1).toString()
-                likeButton.imageTintMode = PorterDuff.Mode.MULTIPLY
-            }
-            else {
-                likesCountView.text = postItem.likes.toString()
-                likeButton.imageTintMode = PorterDuff.Mode.DST_IN
+            if (postItem.liked_by_user != null) {
+                onLikeClick(postItem)
+                isLiked = !isLiked
+                if (isLiked) {
+                    likesCountView.text = postItem.likes.plus(1).toString()
+                    likeButton.imageTintMode = PorterDuff.Mode.MULTIPLY
+                } else {
+                    likesCountView.text = postItem.likes.minus(1).toString()
+                    likeButton.imageTintMode = PorterDuff.Mode.DST_IN
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ class RemoteFeedViewModel(
 ) : ViewModel() {
     private var currentLoadingJob: Job? = null
 
-    fun fetchDoggoImages(): Flow<PagingData<PostData>> {
+    fun fetchPosts(): Flow<PagingData<PostData>> {
         Timber.d("run fetching")
         return repository.letPostsFlow()
             .cachedIn(viewModelScope)
@@ -29,18 +29,18 @@ class RemoteFeedViewModel(
         currentLoadingJob = viewModelScope.launch {
 
             runCatching {
-                try {
-                    repository.addLike(imageId)
+                val post = repository.getPost(imageId)
+                if (post.liked_by_user != null) {
+                    if (post.liked_by_user){
+                        repository.delLike(imageId)
+                    }
+                    else
+                        repository.addLike(imageId)
                 }
-                catch (e:Exception){
-                    repository.delLike(imageId)
-                }
-
             }.onFailure {
                 Timber.d(it)
             }.onSuccess {
             }
         }
     }
-
 }

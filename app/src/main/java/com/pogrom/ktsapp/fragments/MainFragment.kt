@@ -55,7 +55,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun fetchPosts(){
         lifecycleScope.launch{
-            feedViewModel.fetchDoggoImages().distinctUntilChanged().collectLatest {
+            feedViewModel.fetchPosts().distinctUntilChanged().collectLatest {
                 feedAdapter.submitData(it)
             }
         }

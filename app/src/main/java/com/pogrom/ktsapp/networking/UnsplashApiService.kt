@@ -20,4 +20,9 @@ interface UnsplashApiService {
     suspend fun deleteLike(
         @Path("id") imageId : String
     ):PostData
+
+    @GET("photos/{id}")
+    suspend fun getPost(
+        @Path("id") imageId: String
+    ): PostData
 }

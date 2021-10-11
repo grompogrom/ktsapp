@@ -24,6 +24,9 @@ class PostRepository(
     suspend fun delLike(imageId: String) =
         Networking.unsplashApiService.deleteLike(imageId)
 
+    suspend fun getPost(imageId: String) =
+        Networking.unsplashApiService.getPost(imageId)
+
 
     private fun getDefaultPageConfig(): PagingConfig {
         return PagingConfig(pageSize = 10, enablePlaceholders = false)
